@@ -1,0 +1,489 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-image: url("bg3.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    font-family: Arial, sans-serif;
+}
+
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.container {
+    width: 90%;
+    max-width: 700px;
+
+    min-height: auto;
+
+    padding: 25px;
+
+    background-color: rgba(0, 0, 0, 0.5);
+
+    border: 2px solid #3b82f6;
+    border-radius: 30px;
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 0 5px #3b82f6,
+        0 0 15px #3b82f6,
+        0 0 30px #3b82f6;
+}
+
+
+/* =========================
+   TODO APP
+========================= */
+
+.todo-app {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 18px;
+
+    color: white;
+}
+
+
+/* =========================
+   TITLE
+========================= */
+
+.todo-app h1 {
+    width: 100%;
+
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+   
+    margin-bottom: 5px;
+}
+
+
+/* =========================
+   PROGRESS / STAT CONTAINER
+========================= */
+
+.stat-container {
+    width: 90%;
+
+    min-height: 75px;
+    padding: 12px 18px;
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid #3b82f6;
+    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.15);
+}
+
+
+.details h3 {
+    color: white;
+    font-size: 1rem;
+}
+/* PROGRESS BAR */
+#progressbar {
+    width: 170px;
+    height: 7px;
+    margin-top: 10px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    overflow: hidden;
+}
+/* PROGRESS */
+#progress {
+    width: 0%;
+    height: 100%;
+    background-color: #3b82f6;
+    border-radius: 20px;
+    transition: width 0.3s ease;
+}
+/* NUMBER CIRCLE */
+#numbers {
+    width: 55px;
+    height: 55px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #3b82f6;
+    border: 2px solid white;
+    border-radius: 50%;
+    color: white;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+/* =========================
+   INPUT AREA
+========================= */
+#input-area {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+/* INPUT */
+#input-area input {
+    flex: 1;
+    height: 55px;
+    padding: 0 18px;
+    font-size: 1rem;
+    border: 2px solid #3b82f6;
+    border-radius: 30px;
+    background-color: rgb(200, 236, 248);
+    color: #000;
+    outline: none;
+}
+/* PLACEHOLDER */
+
+#input-area input::placeholder {
+    color: #666;
+}
+/* ADD BUTTON */
+#addTaskBtn {
+    width: 55px;
+    height: 55px;
+
+    flex-shrink: 0;
+
+    border: 2px solid #3b82f6;
+
+    border-radius: 50%;
+
+    background-color: rgb(200, 236, 248);
+
+    color: #3b82f6;
+
+    font-size: 2rem;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+/* ADD HOVER */
+#addTaskBtn:hover {
+    transform: scale(1.08);
+    background-color: #3b82f6;
+    color: rgb(200, 236, 248);
+}
+/* =========================
+   TASK CONTAINER
+========================= */
+.todo-container {
+    width: 100%;
+
+    min-height: 120px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-top: 5px;
+}
+
+
+/* =========================
+   TASK LIST
+========================= */
+
+#taskList {
+    width: 90%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 10px;
+
+    list-style: none;
+}
+
+
+/* =========================
+   TASK
+========================= */
+
+#taskList li {
+    width: 100%;
+
+    min-height: 48px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 7px 10px;
+
+    background-color: rgb(200, 236, 248);
+
+    color: #3b82f6;
+
+    border: 2px solid #3b82f6;
+
+    border-radius: 25px;
+
+    font-size: 1rem;
+
+    word-break: break-word;
+
+    transition: 0.2s ease;
+}
+
+
+/* TASK HOVER */
+
+#taskList li:hover {
+    box-shadow:
+        0 0 5px #3b82f6,
+        0 0 12px #3b82f6;
+}
+
+
+/* =========================
+   CHECKBOX
+========================= */
+
+#taskList .checkbox {
+    width: 21px;
+    height: 21px;
+
+    flex-shrink: 0;
+
+    border: 2px solid #3b82f6;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    border-radius: 50%;
+
+    appearance: none;
+
+    transition: all 0.2s ease;
+
+    position: relative;
+}
+
+
+/* CHECKED */
+
+#taskList .checkbox:checked {
+    background-color: #3b82f6;
+
+    border: 2px solid #3b82f6;
+}
+
+
+/* CHECK MARK */
+
+#taskList .checkbox:checked::after {
+    content: "✓";
+
+    position: absolute;
+
+    left: 3px;
+    top: -3px;
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: bold;
+}
+
+
+/* =========================
+   TASK TEXT
+========================= */
+
+#taskList li span {
+    margin-left: 9px;
+
+    flex: 1;
+
+    word-wrap: break-word;
+}
+
+
+/* COMPLETED */
+
+#taskList li.completed span {
+    text-decoration: line-through;
+
+    color: black;
+    
+}
+
+
+/* =========================
+   EDIT + DELETE
+========================= */
+
+.task-buttons {
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    margin-left: auto;
+}
+
+
+.task-buttons button {
+    width: 28px;
+    height: 28px;
+
+    padding: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+
+    border-radius: 50%;
+
+    color: white;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+
+/* EDIT */
+
+.task-buttons .edit-btn {
+    background-color: orange;
+}
+
+
+/* DELETE */
+
+.task-buttons .delete-btn {
+    background-color: #3b82f6;
+}
+
+
+/* BUTTON HOVER */
+
+.task-buttons button:hover {
+    transform: scale(1.1);
+}
+
+
+/* ICON */
+
+.task-buttons i {
+    font-size: 11px;
+}
+
+
+/* =========================
+   NO TASK IMAGE
+========================= */
+
+#noTasksImage {
+    width: 180px;
+    height: 180px;
+
+    object-fit: cover;
+
+    border-radius: 15px;
+
+    margin-top: 5px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .container {
+        width: 94%;
+
+        padding: 20px;
+
+        border-radius: 25px;
+    }
+
+    .todo-app h1 {
+        font-size: 2rem;
+    }
+
+    .stat-container {
+        width: 100%;
+    }
+
+    #input-area {
+        width: 100%;
+    }
+
+    #taskList {
+        width: 100%;
+    }
+
+    #progressbar {
+        width: 120px;
+    }
+
+}
+/* =========================
+   EDIT INPUT
+========================= */
+
+.edit-input {
+    flex: 1;
+    min-width: 0;
+
+    margin-left: 9px;
+
+    padding: 0;
+
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+
+    background: transparent;
+
+    color: #3b82f6;
+
+    font-size: 1rem;
+    font-family: Arial, sans-serif;
+}
+
+.edit-input:focus {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
